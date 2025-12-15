@@ -15,11 +15,11 @@ class AppDrawer extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          const DrawerHeader(
+          DrawerHeader(
             child: Center(
-              child: Text(
-                'STYX',
-                style: TextStyle(fontSize: 20),
+              child: Image.asset(
+                'assets/icons/app_icon.png',
+                height: 84,
               ),
             ),
           ),

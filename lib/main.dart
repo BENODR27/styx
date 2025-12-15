@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
             /// INTERNET SPEED (ALWAYS VISIBLE)
             const Positioned(
               top: 0,
-              right: 0,
+              right: 5,
               child: SafeArea(
                 child: NetworkSpeedBadge(),
               ),

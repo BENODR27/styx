@@ -15,14 +15,14 @@ class NetworkSpeedBadge extends StatelessWidget {
     if (speed == null) {
       color = Colors.orange;
       text = 'Checking...';
-    } else if (speed < 100) {
+    } else if (speed == 0) {
       color = Colors.red;
       text = '${speed} kbps';
-    } else if (speed < 500) {
-      color = Colors.orange;
-      text = '${speed} kbps';
-    } else {
+    } else if (speed < 50) {
       color = Colors.green;
+      text = 'ok';
+    } else {
+      color = Colors.tealAccent;
       text = '${speed} kbps';
     }
 
