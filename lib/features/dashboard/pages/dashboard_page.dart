@@ -40,16 +40,16 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
         ],
       ),
-      // bottomNavigationBar: isDesktop
-      //     ? null
-      //     : NavigationBar(
-      //   selectedIndex: index,
-      //   onDestinationSelected: (i) => setState(() => index = i),
-      //   destinations: const [
-      //     NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-      //     NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
-      //   ],
-      // ),
+      bottomNavigationBar: isDesktop
+          ? null
+          : NavigationBar(
+        selectedIndex: index,
+        onDestinationSelected: (i) => setState(() => index = i),
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+          NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:styx/core/network/network_speed_controller.dart';
+import 'package:styx/core/utils/app_orientation.dart';
 import 'package:styx/features/splash/splash_page.dart';
 import 'package:styx/shared/widgets/network_speed_badge.dart';
 import 'core/storage/local_storage.dart';
@@ -9,6 +10,8 @@ import 'core/theme/theme_controller.dart';
 import 'routes/app_routes.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(
     MultiProvider(
       providers: [
@@ -24,7 +27,6 @@ void main() {
   );
 }
 
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -37,14 +39,18 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: themeController.themeMode,
+      home: const SplashPage(),
 
-      /// 🔹 THIS IS THE KEY FIX
+      /// 🔹 GLOBAL APP BUILDER
       builder: (context, child) {
+        // ✅ GLOBAL ORIENTATION CONTROL (FULL APP)
+        AppOrientation.configure(context);
+
         return Stack(
           children: [
-            child!, // <- active page (Splash/Login/Dashboard)
+            child!, // Active screen
 
-            /// INTERNET SPEED (ALWAYS VISIBLE)
+            /// 🌐 NETWORK SPEED BADGE (ALWAYS ON TOP)
             const Positioned(
               top: 0,
               right: 5,
@@ -55,9 +61,6 @@ class MyApp extends StatelessWidget {
           ],
         );
       },
-
-      home: const SplashPage(),
     );
   }
 }
-
