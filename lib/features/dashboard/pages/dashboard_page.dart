@@ -29,7 +29,7 @@ class _DashboardPageState extends State<DashboardPage> {
     final isDesktop = MediaQuery.of(context).size.width >= 900;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Welcome to STYX App verse')),
+      appBar: AppBar(title: const Text('')),
       drawer: isDesktop ? null : AppDrawer(onLogout: logout),
       body: Row(
         children: [
