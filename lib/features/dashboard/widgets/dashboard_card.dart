@@ -17,7 +17,12 @@ class DashboardCard extends StatelessWidget {
       elevation: 2,
       child: InkWell(
         borderRadius: BorderRadius.circular(18),
-        onTap: item.onTap,
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => item.page),
+          );
+        },
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(

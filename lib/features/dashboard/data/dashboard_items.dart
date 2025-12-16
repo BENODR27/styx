@@ -1,23 +1,29 @@
 // lib/features/dashboard/data/dashboard_items.dart
 import 'package:flutter/material.dart';
+import 'package:styx/features/applications/inventoryAudit/pages/inventory_audit_page.dart';
+import 'package:styx/features/applications/sampleTracking/pages/sample_tracking_page.dart';
 
 class DashboardItem {
   final String title;
   final IconData icon;
-  final VoidCallback? onTap;
+  final Widget page;
 
   DashboardItem({
     required this.title,
     required this.icon,
-    this.onTap,
+    required this.page,
   });
 }
 
 final List<DashboardItem> dashboardItems = [
-  DashboardItem(title: 'Attendance', icon: Icons.fact_check_outlined),
-  DashboardItem(title: 'Leaves', icon: Icons.event_available_outlined),
-  DashboardItem(title: 'Payroll', icon: Icons.account_balance_wallet_outlined),
-  DashboardItem(title: 'Reports', icon: Icons.bar_chart_outlined),
-  DashboardItem(title: 'Tasks', icon: Icons.task_alt_outlined),
-  DashboardItem(title: 'Settings', icon: Icons.settings_outlined),
+  DashboardItem(
+    title: 'Inventory Audit',
+    icon: Icons.fact_check_outlined,
+    page: const InventoryAuditPage(),
+  ),
+  DashboardItem(
+    title: 'Sample Tracking',
+    icon: Icons.event_available_outlined,
+    page: const SampleTrackingPage(),
+  ),
 ];
